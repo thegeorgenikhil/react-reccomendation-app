@@ -3,19 +3,19 @@ import React, { useEffect, useState } from "react";
 
 var tedxDB = {
   brain: {
-    "How to Get Your Brain to Focus": "4/5",
-    "Neurohacking: rewiring your brain": "3.5/5",
-    "Hack your own brain": "4.5/5"
+    "How to Get Your Brain to Focus": ["https://www.youtube.com/watch?v=Hu4Yvq-g7_Y&t=7s","4/5"],
+    "Neurohacking: rewiring your brain": ["https://www.youtube.com/watch?v=xzbHtIrb14s&t=15s","3.5/5"],
+    "Hack your own brain": ["https://www.youtube.com/watch?v=zAZPsX33YCM&t=10s","4.5/5"]
   },
   learning: {
-    "The first 20 hours -- how to learn anything": "4/5",
-    "Learning how to learn": "5/5",
-    "How To Learn Anything In 30 Days ": "4/5"
+    "The first 20 hours -- how to learn anything": ["https://www.youtube.com/watch?v=5MgBikgcWnY&t=18s","4/5"],
+    "Learning how to learn": ["https://www.youtube.com/watch?v=O96fE1E-rf8&t=6s","5/5"],
+    "How To Learn Anything In 30 Days ": ["https://www.youtube.com/watch?v=SKVVSKFdEL4&t=8s","4/5"]
   },
   blockchain: {
-    "How the blockchain is changing money and business": "4/5",
-    "How Blockchain can transform India": "4.5/5",
-    "Cryptocurrency: Hype vs. Fact": "4.5./5"
+    "How the blockchain is changing money and business": ["https://www.youtube.com/watch?v=Pl8OlkkwRpc&t=13s","4/5"],
+    "How Blockchain can transform India": ["https://www.youtube.com/watch?v=8fbhI1qVj0c&t=14s","4.5/5"],
+    "Cryptocurrency: Hype vs. Fact": ["https://www.youtube.com/watch?v=R8mZ6SbLMbo&t=15s","4.5./5"]
   }
 };
 
@@ -44,7 +44,8 @@ export default function App() {
               backgroundColor: "white",
               padding: "0.5rem",
               margin: "0.5rem",
-              borderRadius: "0.5rem"
+              borderRadius: "0.5rem",
+              cursor: "pointer"
             }}
           >
             {items}
@@ -66,11 +67,12 @@ export default function App() {
                 margin: "1rem auto",
                 padding: "1rem",
                 borderRadius: "1rem",
-                width: "60%"
+                width: "350px"
               }}
             >
-              <div>{items}</div>
-              <div>{tedxDB[currentGenre][items]}</div>
+              <div className="headingCat">{items}</div>
+              <div className="rating">{tedxDB[currentGenre][items][1]}</div>
+              <a href={tedxDB[currentGenre][items][0]} className="watchLink">Watch Here</a>
             </li>
           ))}
         </ul>
